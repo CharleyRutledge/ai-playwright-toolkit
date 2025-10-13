@@ -15,9 +15,9 @@ This project follows the rules defined in `rules/Starting Rules.md`:
 ## Commenting rules
 
 - Rule 1: Make sure to write short, concise comments for all code.
-- Rule 2: If there are no comments, write them. 
-- Rule 3: Make sure to give an overview of the functinality
-- Rule4: Iterate over all code and make sure to meet the rules
+- Rule 2: If there are no comments, write them.
+- Rule 3: Make sure to give an overview of the functionality
+- Rule 4: Iterate over all code and make sure to meet the rules
 
 ## Updating
 update the project with any new functionality, readme, requirements etc.

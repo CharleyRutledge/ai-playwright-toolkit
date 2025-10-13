@@ -59,4 +59,17 @@ logs/
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Python type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Black
+.black/ 

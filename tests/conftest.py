@@ -1,9 +1,18 @@
 import pytest
 import os
+import sys
 import allure
 from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+
+# Add project root to Python path for imports
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+# Import custom fixtures
+from fixtures.page_fixtures import *
+from fixtures.data_fixtures import *
 
 
 @pytest.fixture(scope="session", autouse=True)

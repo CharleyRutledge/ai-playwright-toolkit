@@ -1,0 +1,53 @@
+{
+  "playwright_website": {
+    "base_url": "https://playwright.dev",
+    "expected_title": "Fast and reliable end-to-end testing for modern web apps | Playwright",
+    "search_queries": [
+      "python",
+      "javascript",
+      "locators",
+      "assertions"
+    ],
+    "navigation_links": [
+      {
+        "name": "Docs",
+        "url": "/docs/intro"
+      },
+      {
+        "name": "API",
+        "url": "/docs/api/class-playwright"
+      },
+      {
+        "name": "Community",
+        "url": "/community/welcome"
+      }
+    ]
+  },
+  "test_users": [
+    {
+      "username": "testuser1",
+      "email": "testuser1@example.com",
+      "role": "admin"
+    },
+    {
+      "username": "testuser2",
+      "email": "testuser2@example.com",
+      "role": "user"
+    }
+  ],
+  "form_data": {
+    "valid_email": "test@example.com",
+    "invalid_emails": [
+      "notanemail",
+      "@example.com",
+      "test@",
+      "test"
+    ],
+    "test_messages": [
+      "This is a test message",
+      "Short",
+      "A very long message that exceeds normal length limits for testing purposes"
+    ]
+  }
+}
+
