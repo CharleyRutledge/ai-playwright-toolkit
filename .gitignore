@@ -72,4 +72,4 @@ logs/
 dmypy.json
 
 # Black
-.black/ 
+.black/ example-domain-*.png

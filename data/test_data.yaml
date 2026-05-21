@@ -1,5 +1,6 @@
 playwright_website:
   base_url: https://playwright.dev
+  hero_text: web automation
   expected_title: Fast and reliable end-to-end testing for modern web apps | Playwright
   search_queries:
     - python
