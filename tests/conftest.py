@@ -14,9 +14,9 @@ load_dotenv(project_root / ".env")
 
 DEFAULT_BASE_URL = os.environ.get("BASE_URL", "https://playwright.dev")
 
-from fixtures.data_fixtures import *  # noqa: E402, F403
-from fixtures.page_fixtures import *  # noqa: E402, F403
-from fixtures.scenario_fixtures import *  # noqa: E402, F403
+from fixtures.data_fixtures import *  # noqa: E402, F401, F403
+from fixtures.page_fixtures import *  # noqa: E402, F401, F403
+from fixtures.scenario_fixtures import *  # noqa: E402, F401, F403
 
 
 @pytest.fixture(scope="session", autouse=True)

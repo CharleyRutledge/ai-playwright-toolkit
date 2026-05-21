@@ -10,7 +10,6 @@ This test suite demonstrates the complete AI-powered testing workflow:
 
 import pytest
 from playwright.sync_api import Page, expect
-from typing import Any, Optional
 import re
 import allure
 

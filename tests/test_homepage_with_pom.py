@@ -7,7 +7,6 @@ import pytest
 import allure
 from playwright.sync_api import Page, expect
 from page_objects.playwright_home_page import PlaywrightHomePage
-from fixtures.page_fixtures import playwright_home_page
 
 
 class TestHomepageWithPOM:

@@ -3,7 +3,7 @@ Wait Helpers
 Utility functions for waiting and synchronization.
 """
 
-from playwright.sync_api import Page, Locator, expect
+from playwright.sync_api import Page, Locator
 from typing import Callable
 
 

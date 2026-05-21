@@ -3,8 +3,6 @@ Scenario-Driven Tests
 Run declarative scenarios from data/scenarios.yaml for any target site.
 """
 
-import os
-
 import allure
 import pytest
 from playwright.sync_api import Page
