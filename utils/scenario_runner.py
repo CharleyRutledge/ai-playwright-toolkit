@@ -2,6 +2,7 @@
 Scenario Runner
 Execute declarative test scenarios from YAML configuration for any target site.
 """
+
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -122,9 +123,7 @@ class ScenarioRunner:
             return
 
         if action == "set_viewport":
-            self.page.set_viewport_size(
-                {"width": params["width"], "height": params["height"]}
-            )
+            self.page.set_viewport_size({"width": params["width"], "height": params["height"]})
             return
 
         if action == "click_role":
@@ -150,9 +149,7 @@ class ScenarioRunner:
             return
 
         if action == "fill_role":
-            self.page.get_by_role(params["role"], name=params["name"]).fill(
-                params["value"]
-            )
+            self.page.get_by_role(params["role"], name=params["name"]).fill(params["value"])
             return
 
         if action == "fill_label":
@@ -193,9 +190,7 @@ class ScenarioRunner:
             return
 
         if action == "expect_visible_role":
-            expect(
-                self.page.get_by_role(params["role"], name=params["name"])
-            ).to_be_visible()
+            expect(self.page.get_by_role(params["role"], name=params["name"])).to_be_visible()
             return
 
         if action == "expect_visible_text":
@@ -227,28 +222,22 @@ class ScenarioRunner:
             return
 
         if action == "expect_role_count":
-            expect(self.page.get_by_role(params["role"])).to_have_count(
-                params["count"]
-            )
+            expect(self.page.get_by_role(params["role"])).to_have_count(params["count"])
             return
 
         if action == "expect_element_count":
-            expect(self.page.locator(params["selector"])).to_have_count(
-                params["count"]
-            )
+            expect(self.page.locator(params["selector"])).to_have_count(params["count"])
             return
 
         if action == "expect_value_role":
-            expect(
-                self.page.get_by_role(params["role"], name=params["name"])
-            ).to_have_value(params["value"])
+            expect(self.page.get_by_role(params["role"], name=params["name"])).to_have_value(
+                params["value"]
+            )
             return
 
         if action == "evaluate_assert":
             result = self.page.evaluate(params["expression"])
-            assert result == params["expected"], (
-                f"Expected {params['expected']}, got {result}"
-            )
+            assert result == params["expected"], f"Expected {params['expected']}, got {result}"
             return
 
         if action == "performance_assert":

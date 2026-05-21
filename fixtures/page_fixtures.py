@@ -2,6 +2,7 @@
 Page Fixtures
 Custom pytest fixtures for page objects.
 """
+
 import os
 from pathlib import Path
 

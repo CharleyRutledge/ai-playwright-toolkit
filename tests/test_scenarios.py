@@ -2,6 +2,7 @@
 Scenario-Driven Tests
 Run declarative scenarios from data/scenarios.yaml for any target site.
 """
+
 import os
 
 import allure
