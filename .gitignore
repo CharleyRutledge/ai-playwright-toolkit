@@ -61,6 +61,9 @@ logs/
 *.tmp
 *.temp
 
+# Test-run screenshots (generated in project root during pytest)
+example-domain-*.png
+
 # Environment files
 .env
 .env.local
@@ -72,4 +75,4 @@ logs/
 dmypy.json
 
 # Black
-.black/ example-domain-*.png
+.black/ 
