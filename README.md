@@ -283,7 +283,7 @@ This project follows official Playwright documentation patterns:
 class PlaywrightHomePage:
     def __init__(self, page: Page):
         self.page = page
-        self.search_button = page.get_by_role("button", name="Search (Ctrl+K)")
+        self.search_button = page.get_by_role("button", name="Search (Control+k)")
     
     def navigate(self):
         self.page.goto("/")  # Uses base URL
@@ -292,7 +292,7 @@ class PlaywrightHomePage:
 ### Role-Based Selectors
 ```python
 # Accessibility-first selectors
-page.get_by_role("button", name="Search (Ctrl+K)")
+page.get_by_role("button", name="Search (Control+k)")
 page.get_by_role("searchbox", name="Search")
 page.get_by_role("link", name="Docs")
 ```

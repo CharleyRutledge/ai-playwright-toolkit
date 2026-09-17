@@ -28,7 +28,7 @@ class PlaywrightHomePage(BasePage):
     def search_button(self) -> Locator:
         """Get search button locator."""
         if self._search_button is None:
-            self._search_button = self.page.get_by_role("button", name="Search (Ctrl+K)")
+            self._search_button = self.page.get_by_role("button", name="Search (Control+k)")
         return self._search_button
 
     @property

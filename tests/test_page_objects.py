@@ -9,7 +9,7 @@ class PlaywrightHomePage:
     def __init__(self, page: Page):
         self.page = page
         # Search button using role selector
-        self.search_button = page.get_by_role("button", name="Search (Ctrl+K)")
+        self.search_button = page.get_by_role("button", name="Search (Control+k)")
         # Docs link using role selector
         self.docs_link = page.get_by_role("link", name="Docs")
         # Main heading for verification
