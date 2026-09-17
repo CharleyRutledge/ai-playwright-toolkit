@@ -3,14 +3,14 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "playwright-automation-framework"
+name = "ai-playwright-toolkit"
 version = "1.0.0"
 description = "AI-assisted Playwright automation testing framework using Python and Pytest"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Charley Rutledge", email = "charleyrutledge52@gmail.com"}
 ]
 keywords = ["playwright", "testing", "automation", "pytest", "ai-assisted"]
 classifiers = [
@@ -43,10 +43,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/playwright-automation-framework"
-Documentation = "https://github.com/yourusername/playwright-automation-framework#readme"
-Repository = "https://github.com/yourusername/playwright-automation-framework"
-Issues = "https://github.com/yourusername/playwright-automation-framework/issues"
+Homepage = "https://github.com/CharleyRutledge/ai-playwright-toolkit"
+Documentation = "https://github.com/CharleyRutledge/ai-playwright-toolkit#readme"
+Repository = "https://github.com/CharleyRutledge/ai-playwright-toolkit"
+Issues = "https://github.com/CharleyRutledge/ai-playwright-toolkit/issues"
 
 [tool.pytest.ini_options]
 minversion = "8.0"

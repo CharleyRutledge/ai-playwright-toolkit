@@ -1,4 +1,4 @@
-# Playwright Example Project
+# AI Playwright Toolkit
 
 This project demonstrates Playwright automation testing with Python and Pytest, following the official Playwright documentation patterns and Testing Rules.
 
