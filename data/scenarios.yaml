@@ -18,7 +18,7 @@ scenarios:
         text: web automation
       - action: expect_visible_role
         role: button
-        name: Search (Ctrl+K)
+        name: Search (Control+k)
 
   playwright_search:
     name: Playwright Search Flow
@@ -30,7 +30,7 @@ scenarios:
         url: /
       - action: click_role
         role: button
-        name: Search (Ctrl+K)
+        name: Search (Control+k)
       - action: fill_role
         role: searchbox
         name: Search

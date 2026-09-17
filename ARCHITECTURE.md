@@ -33,7 +33,7 @@ Playwright-example/
 │       └── test_*.py          # Test modules
 │
 ├── Configuration
-│   ├── .cursorules            # AI assistant rules
+│   ├── CLAUDE.md               # AI assistant rules
 │   ├── pyproject.toml         # Project configuration
 │   ├── pytest.ini             # Pytest configuration
 │   ├── requirements.txt       # Python dependencies

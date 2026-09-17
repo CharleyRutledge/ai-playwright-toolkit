@@ -1,4 +1,4 @@
-# Contributing to Playwright Automation Framework
+# Contributing to AI Playwright Toolkit
 
 Thank you for your interest in contributing to this AI-assisted Playwright automation framework!
 
@@ -17,8 +17,8 @@ Thank you for your interest in contributing to this AI-assisted Playwright autom
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/playwright-automation-framework.git
-   cd playwright-automation-framework
+   git clone https://github.com/your-username/ai-playwright-toolkit.git
+   cd ai-playwright-toolkit
    ```
 
 3. Create a new branch:
@@ -239,11 +239,11 @@ pytest --cov=page_objects --cov=utils --cov=fixtures
 
 ## AI-Assisted Development
 
-This project is designed to work with AI assistants (Cursor, GitHub Copilot, etc.):
+This project is designed to work with AI assistants (Claude Code, GitHub Copilot, etc.):
 
 ### Using Project Rules
 
-The `.cursorules` file defines project-specific rules for AI assistants. Review this file to understand the automated guidance.
+The `CLAUDE.md` file defines project-specific rules for AI assistants. Review this file to understand the automated guidance.
 
 ### Using Prompts
 

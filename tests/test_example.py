@@ -41,7 +41,7 @@ class TestExample:
         page.goto("/")
 
         # Click on the search button using role selector
-        page.get_by_role("button", name="Search (Ctrl+K)").click()
+        page.get_by_role("button", name="Search (Control+k)").click()
 
         # Wait for search box to be visible and type search query
         search_box = page.get_by_role("searchbox", name="Search")
