@@ -239,11 +239,11 @@ pytest --cov=page_objects --cov=utils --cov=fixtures
 
 ## AI-Assisted Development
 
-This project is designed to work with AI assistants (Cursor, GitHub Copilot, etc.):
+This project is designed to work with AI assistants (Claude Code, GitHub Copilot, etc.):
 
 ### Using Project Rules
 
-The `.cursorules` file defines project-specific rules for AI assistants. Review this file to understand the automated guidance.
+The `CLAUDE.md` file defines project-specific rules for AI assistants. Review this file to understand the automated guidance.
 
 ### Using Prompts
 

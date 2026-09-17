@@ -1,4 +1,4 @@
-# Cursor AI Rules for Playwright Automation Project
+# AI Assistant Rules for Playwright Automation Project
 
 ## Project Context
 This is a Playwright automation testing project using Python, Pytest, and following AI-assisted testing practices.
@@ -56,4 +56,3 @@ This is a Playwright automation testing project using Python, Pytest, and follow
 - Update requirements.txt when adding new dependencies
 - Update README.md when adding new functionality
 - Keep all documentation in sync with code changes
-
