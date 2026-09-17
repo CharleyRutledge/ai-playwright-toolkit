@@ -7,7 +7,7 @@ model: 'Claude Sonnet 4'
 
 # Manual Testing Instructions
 
-1. Use the Playwright MCP Server to manually test the scenario provided by the user. If no scenario is provided, ask the user to provide one.
+1. Use the Playwright MCP Server to manually test the scenario provided by the user. If no scenario is provided, use or create an entry in `data/scenarios.yaml`, or infer a smoke flow from the URL (page load, main heading, primary link).
 2. Navigate to the url provided by the user and perform the described interactions. If no url is provided, ask the user to provide one.
 3. Observe and verify the expected behavior, focusing on accessibility, UI structure, and user experience.
 4. Report back in clear, natural language:

@@ -50,7 +50,7 @@ Issues = "https://github.com/yourusername/playwright-automation-framework/issues
 
 [tool.pytest.ini_options]
 minversion = "8.0"
-addopts = "-v --tb=short --capture=no --log-cli-level=INFO --browser chromium --alluredir=allure-results"
+addopts = "-v --tb=short --capture=no --log-cli-level=INFO --alluredir=allure-results"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
