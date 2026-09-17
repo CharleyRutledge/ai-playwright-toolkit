@@ -61,9 +61,7 @@ class TestPageObjectModel:
         )
 
         # Verify main heading is visible
-        expect(home_page.main_heading).to_contain_text(
-            "Playwright enables reliable end-to-end testing"
-        )
+        expect(home_page.main_heading).to_contain_text("web automation")
 
     @pytest.mark.regression
     @allure.title("Search Page Object Test")

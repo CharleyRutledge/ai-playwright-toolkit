@@ -46,6 +46,22 @@ def save_json(data: Dict[str, Any], file_path: str):
         json.dump(data, f, indent=2)
 
 
+def load_yaml(file_path: str) -> Dict[str, Any]:
+    """
+    Load data from YAML file.
+
+    Args:
+        file_path: Path to YAML file
+
+    Returns:
+        Loaded data
+    """
+    import yaml
+
+    with open(file_path, "r", encoding="utf-8") as handle:
+        return yaml.safe_load(handle) or {}
+
+
 def load_json(file_path: str) -> Dict[str, Any]:
     """
     Load data from JSON file.

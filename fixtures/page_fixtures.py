@@ -3,6 +3,9 @@ Page Fixtures
 Custom pytest fixtures for page objects.
 """
 
+import os
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import Page
 from page_objects.playwright_home_page import PlaywrightHomePage
@@ -25,18 +28,14 @@ def playwright_home_page(page: Page) -> PlaywrightHomePage:
 @pytest.fixture
 def logged_in_page(page: Page) -> Page:
     """
-    Fixture to provide a page with authentication.
-    This is a placeholder - implement your authentication logic.
+    Fixture providing a page with persisted storage state for authenticated flows.
 
-    Args:
-        page: Playwright page instance
-
-    Returns:
-        Authenticated page instance
+    Set USE_STORAGE_STATE=true and optionally STORAGE_STATE=path/to/state.json.
+    Generate state with: playwright codegen --save-storage=state.json <login-url>
     """
-    # TODO: Implement authentication logic
-    # Example: page.goto("/login")
-    # page.fill("#username", "testuser")
-    # page.fill("#password", "password")
-    # page.click("button[type='submit']")
+    storage_path = os.environ.get("STORAGE_STATE", "state.json")
+    if os.environ.get("USE_STORAGE_STATE", "").lower() in ("1", "true", "yes"):
+        if Path(storage_path).exists():
+            return page
+        pytest.skip(f"Storage state file not found: {storage_path}")
     return page

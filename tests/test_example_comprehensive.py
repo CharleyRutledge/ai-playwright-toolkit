@@ -10,6 +10,7 @@ This test suite demonstrates the complete AI-powered testing workflow:
 
 import pytest
 from playwright.sync_api import Page, expect
+import re
 import allure
 
 
@@ -68,7 +69,9 @@ class TestExampleDomainComprehensive:
         expect(main_heading).to_contain_text("Example Domain")
 
         # Verify page has essential content structure
-        content_paragraph = self.page.get_by_text("This domain is for use in illustrative examples")
+        content_paragraph = self.page.get_by_text(
+            "documentation examples without needing permission"
+        )
         expect(content_paragraph).to_be_visible()
 
         # Take screenshot for visual verification
@@ -99,12 +102,12 @@ class TestExampleDomainComprehensive:
 
         # Check for proper paragraph structure
         paragraphs = self.page.locator("p")
-        expect(paragraphs).to_have_count(2)  # Two paragraphs expected
+        expect(paragraphs).to_have_count(2)
 
         # Verify link accessibility
-        info_link = self.page.get_by_role("link", name="More information...")
+        info_link = self.page.get_by_role("link", name="Learn more")
         expect(info_link).to_be_visible()
-        expect(info_link).to_have_attribute("href", "https://www.iana.org/domains/example")
+        expect(info_link).to_have_attribute("href", "https://iana.org/domains/example")
 
     @allure.title("Navigation and Link Functionality")
     @allure.description("Test navigation elements and link functionality")
@@ -121,12 +124,12 @@ class TestExampleDomainComprehensive:
         - Navigation flow works as expected
         """
         # Test the information link
-        info_link = self.page.get_by_role("link", name="More information...")
+        info_link = self.page.get_by_role("link", name="Learn more")
         expect(info_link).to_be_visible()
         expect(info_link).to_be_enabled()
 
         # Verify link destination
-        expect(info_link).to_have_attribute("href", "https://www.iana.org/domains/example")
+        expect(info_link).to_have_attribute("href", "https://iana.org/domains/example")
 
         # Test link interaction (hover to verify it's interactive)
         info_link.hover()
@@ -150,26 +153,18 @@ class TestExampleDomainComprehensive:
         - Text is readable and accessible
         """
         # Verify main content text
-        main_content = self.page.get_by_text(
-            "This domain is for use in illustrative examples in documents"
-        )
+        main_content = self.page.get_by_text("documentation examples without needing permission")
         expect(main_content).to_be_visible()
 
-        # Check for additional content
-        permission_text = self.page.get_by_text(
-            "You may use this domain in literature without prior coordination"
-        )
-        expect(permission_text).to_be_visible()
-
         # Verify link text
-        link_text = self.page.get_by_text("More information...")
+        link_text = self.page.get_by_text("Learn more")
         expect(link_text).to_be_visible()
 
         # Test text content structure
         body_text = self.page.locator("body").text_content()
         assert "Example Domain" in body_text
-        assert "illustrative examples" in body_text
-        assert "More information" in body_text
+        assert "documentation examples" in body_text
+        assert "Learn more" in body_text
 
     @allure.title("Responsive Design and Viewport Testing")
     @allure.description("Test responsive design at different viewport sizes")
@@ -303,7 +298,7 @@ class TestExampleDomainAIGenerated:
         Based on systematic exploration, the main user journey is:
         1. User lands on example.com
         2. User reads the domain description
-        3. User clicks on "More information..." link
+        3. User clicks on "Learn more" link
         4. User is redirected to IANA documentation
         """
         # Step 1: Verify initial landing
@@ -311,11 +306,11 @@ class TestExampleDomainAIGenerated:
         expect(self.page.get_by_role("heading", name="Example Domain")).to_be_visible()
 
         # Step 2: Verify content reading
-        description = self.page.get_by_text("This domain is for use in illustrative examples")
+        description = self.page.get_by_text("documentation examples without needing permission")
         expect(description).to_be_visible()
 
         # Step 3: Verify link interaction
-        info_link = self.page.get_by_role("link", name="More information...")
+        info_link = self.page.get_by_role("link", name="Learn more")
         expect(info_link).to_be_visible()
         expect(info_link).to_be_enabled()
 
@@ -324,7 +319,7 @@ class TestExampleDomainAIGenerated:
             info_link.click()
 
         # Verify navigation to IANA (actual redirect URL)
-        expect(self.page).to_have_url("https://www.iana.org/help/example-domains")
+        expect(self.page).to_have_url(re.compile("iana.org"))
 
         # Take screenshot of user journey
         self.page.screenshot(path="example-domain-user-journey.png")

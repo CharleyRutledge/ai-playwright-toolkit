@@ -1,0 +1,144 @@
+# Declarative test scenarios — add any site/workflow here without changing Python code.
+# Run all: pytest tests/test_scenarios.py -v
+# Run one: SCENARIO_ID=playwright_smoke pytest tests/test_scenarios.py -v
+# Filter: pytest tests/test_scenarios.py -m smoke -v
+
+scenarios:
+  playwright_smoke:
+    name: Playwright Homepage Smoke
+    description: Verify Playwright.dev homepage loads and shows current hero content
+    base_url: https://playwright.dev
+    marks: [smoke, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: expect_title_contains
+        text: Playwright
+      - action: expect_heading_contains
+        text: web automation
+      - action: expect_visible_role
+        role: button
+        name: Search (Ctrl+K)
+
+  playwright_search:
+    name: Playwright Search Flow
+    description: Open search and verify query entry
+    base_url: https://playwright.dev
+    marks: [regression, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: click_role
+        role: button
+        name: Search (Ctrl+K)
+      - action: fill_role
+        role: searchbox
+        name: Search
+        value: python
+      - action: expect_value_role
+        role: searchbox
+        name: Search
+        value: python
+
+  playwright_docs_navigation:
+    name: Playwright Docs Navigation
+    description: Navigate from homepage to documentation intro
+    base_url: https://playwright.dev
+    marks: [regression, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: click_role
+        role: link
+        name: Docs
+        navigation: true
+      - action: expect_url
+        url: https://playwright.dev/docs/intro
+      - action: expect_heading_contains
+        text: Installation
+
+  example_domain_smoke:
+    name: Example Domain Smoke
+    description: Verify example.com loads with current IANA content
+    base_url: https://example.com
+    marks: [smoke, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: expect_title
+        value: Example Domain
+      - action: expect_heading
+        name: Example Domain
+      - action: expect_visible_text
+        text: documentation examples without needing permission
+      - action: expect_link
+        name: Learn more
+        href: https://iana.org/domains/example
+
+  example_domain_user_journey:
+    name: Example Domain User Journey
+    description: Read content and follow Learn more link to IANA
+    base_url: https://example.com
+    marks: [regression, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: expect_heading
+        name: Example Domain
+      - action: click_link
+        name: Learn more
+        navigation: true
+      - action: expect_url_contains
+        pattern: iana.org
+
+  example_domain_responsive:
+    name: Example Domain Responsive Layout
+    description: Verify page remains usable across viewport sizes
+    base_url: https://example.com
+    marks: [regression, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: set_viewport
+        width: 375
+        height: 667
+      - action: expect_body_visible
+      - action: expect_heading
+        name: Example Domain
+      - action: set_viewport
+        width: 1280
+        height: 720
+      - action: expect_heading
+        name: Example Domain
+
+  example_domain_accessibility:
+    name: Example Domain Accessibility
+    description: Verify semantic structure and keyboard focus
+    base_url: https://example.com
+    marks: [regression, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: expect_element_count
+        selector: h1
+        count: 1
+      - action: expect_role_count
+        role: link
+        count: 1
+      - action: press_key
+        key: Tab
+      - action: expect_body_visible
+
+  example_domain_performance:
+    name: Example Domain Performance
+    description: Verify page reload completes within threshold
+    base_url: https://example.com
+    marks: [slow, scenario]
+    steps:
+      - action: goto
+        url: /
+      - action: performance_assert
+        max_ms: 5000
+        wait_until: networkidle
+      - action: expect_heading
+        name: Example Domain

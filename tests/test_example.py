@@ -25,7 +25,7 @@ class TestExample:
         )
 
         # Verify the main heading is visible
-        expect(page.locator("h1")).to_contain_text("Playwright enables reliable end-to-end testing")
+        expect(page.locator("h1")).to_contain_text("web automation")
 
     @pytest.mark.regression
     @allure.title("Search Functionality Test")

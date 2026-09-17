@@ -76,6 +76,41 @@ Following the official documentation, the project includes:
 - **HTTPS error handling**: `ignore_https_errors: True`
 - **Browser launch options**: Headless mode, slow motion for debugging
 
+
+## Scenario-Driven Testing (Any Site)
+
+Add or run tests for **any URL or user flow** without writing new Python for each case. Scenarios live in `data/scenarios.yaml`.
+
+### Run scenarios
+
+```bash
+# All declarative scenarios
+pytest tests/test_scenarios.py -v
+
+# Single scenario
+SCENARIO_ID=playwright_smoke pytest tests/test_scenarios.py -v
+
+# Filter by mark defined in YAML (smoke, regression, slow)
+SCENARIO_MARK=smoke pytest tests/test_scenarios.py -v
+```
+
+### Add a new scenario
+
+1. Explore the site (Playwright MCP or `pytest --headed`).
+2. Add a block under `scenarios:` in `data/scenarios.yaml` with `base_url`, `marks`, and `steps`.
+3. Run `pytest tests/test_scenarios.py -v` until it passes.
+
+Supported step actions include `goto`, `click_role`, `click_link`, `fill_role`, `expect_title`, `expect_heading`, `expect_visible_text`, `expect_url_contains`, `set_viewport`, and `performance_assert`. See `utils/scenario_runner.py` for the full list.
+
+### Environment configuration
+
+Copy `env.template` to `.env` and set:
+
+- `BASE_URL` — default base URL for standard tests
+- `USE_STORAGE_STATE=true` — enable `state.json` authentication
+- `SCENARIO_ID` / `SCENARIO_MARK` — filter scenario tests
+
+
 ## Running Tests
 
 ### Basic Test Execution
